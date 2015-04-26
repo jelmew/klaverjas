@@ -42,6 +42,6 @@ class kaart
 	private:
 };
 
-//kaart* converteer_naar_kaart(std::string  string_kleur, std::string string_type);
+
 
 #endif

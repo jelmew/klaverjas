@@ -6,11 +6,12 @@
 #include <iterator>
 #include <string>
 #include <set>
+#include <memory>
 class speler
 {
 	public:
 	speler(){};
-	speler(std::multiset<kaart*> input_hand,std:: string player_name_input): hand(input_hand), player_name(player_name_input)
+	speler(std::vector<std::shared_ptr<kaart> > input_hand,std:: string player_name_input): hand(input_hand), player_name(player_name_input)
 	{};
 	~speler()
 	{
@@ -18,12 +19,12 @@ class speler
 	};
 	friend std::ostream& operator<<(std::ostream& os, const speler& print);
 
-	void give_card(kaart* card);
+	void give_card(std::shared_ptr<kaart> card);
 	bool take_card(kaartkleur kleur,kaarttype type);
 	bool take_card(kaart card);
 
 	private:
-	std::multiset<kaart*> hand;
+	std::vector<std::shared_ptr<kaart> > hand;
 	const std::string player_name;
 };
 

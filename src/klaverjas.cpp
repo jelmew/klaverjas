@@ -1,23 +1,16 @@
-#include "klaverjas.h"
+#include "../include/klaverjas.h"
 const std::map<std::string, kaartkleur> kleur_map=boost::assign::map_list_of("klaveren",klaveren)("schoppen",schoppen)("harten",harten)("ruiten",ruiten);
 const std::map<std::string,kaarttype> type_map=boost::assign::map_list_of("aas",aas)("twee",twee)("drie",drie)("vier",vier)("vijf",vijf)("zes",zes)("zeven",zeven)
 ("acht",acht)("negen",negen)("tien",tien)("boer",boer)("vrouw",vrouw)("heer",heer);
 klaverjas::klaverjas()
 {
+	deck();
 	//ctor
 }
 /**Destroying the list of cards**/
 klaverjas::~klaverjas()
 {
-	/*
-	for(auto it: deck)
-	{
 
-    delete it;
-
-	}
-	deck.clear();
-	*/
 }
 /** Maak een lijst aan kaarten vanuit een txt bestand**/
 void klaverjas::get_card_list(string filename)
@@ -57,12 +50,24 @@ void klaverjas::get_card_list(string filename)
 		auto type=type_iterator->second;
 
 		//cout<<kleur<<endl;
-		const std::shared_ptr<const kaart> new_kaart(new const kaart(kleur,type));
+		 std::shared_ptr<const kaart> new_kaart(new const kaart(kleur,type));
+		 deck_of_cards.insert_card(new_kaart);
 
-		deck.push_back(new_kaart);
+
+
 
 
 	}
-
+	input_file.close();
+	//deck_of_cards.print_deck();
 	return;
+}
+
+/**Schud denk en geef de kaarten van bovenaf naar onder aan de spelers**/
+void klaverjas::shuffle_and_give()
+{
+	deck_of_cards.shuffle_deck();
+	cout<<*deck_of_cards.take_card()<<endl;
+	//deck_of_cards.print_deck();
+
 }

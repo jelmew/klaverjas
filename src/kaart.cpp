@@ -1,4 +1,4 @@
-#include "kaart.h"
+#include "../include/kaart.h"
 
 const  map<string, kaartkleur> kleur_map=map_list_of("klaveren",klaveren)("schoppen",schoppen)("harten",harten)("ruiten",ruiten);
 const  map<string,kaarttype> type_map=map_list_of("aas",aas)("twee",twee)("drie",drie)("vier",vier)("vijf",vijf)("zes",zes)("zeven",zeven)
@@ -43,33 +43,4 @@ bool operator!=(kaart& a, kaart& b)
 	return !(a==b);
 
 }
-/*kaart* converteer_naar_kaart(std::string  string_kleur, std::string string_type)
-{
 
-
-		kaartkleur input_kleur;
-		kaarttype input_type;
-		/*
-		switch(string_kleur)
-		{
-			case "harten": 		input_kleur=kaartkleur::harten; break;
-			case "ruiten": 		input_kleur=kaartkleur::ruiten; break;
-			case "schoppen":	input_kleur=kaartkleur::schoppen; break;
-			case "klaveren": 	input_kleur=kaartkleur::klaveren; break;
-			default:					std::cout<<"Kaart niet compatibel"std::endl;		return false;
-		}
-
-		switch(string_type)
-		{
-			case "aas":				input_type=kaarttype::aas; break;
-			case "7":					input_type=kaarttype::zeven; break;
-			case "8":					input_type=kaarttype::acht; break;
-			case "9":					input_type=kaarttype::negen;break;
-			case "10":				input_type=kaarttype::tien;	break;
-			case "boer":			input_type=kaarttype::boer;	break;
-			case "vrouw":			input_type=kaarttype::vrouw; break;
-			case "heer":			input_type=kaarttype::hear; break;
-			default:					std::cout<<"kaart niet compatibel"<<std::endl;
-		}
-		return 0;
-}*/

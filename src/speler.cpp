@@ -1,4 +1,4 @@
-#include "speler.h"
+#include "../include/speler.h"
 
 std::ostream& operator<<(std::ostream& os, const speler& print)
 {
@@ -31,9 +31,9 @@ bool speler::take_card(kaartkleur kleur,kaarttype type)
   return false;
 }
 
-void speler::give_card(kaart* card)
+void speler::give_card(std::shared_ptr<kaart> card)
 {
-  hand.insert(card);
+  hand.push_back(card);
 
   return;
 }
