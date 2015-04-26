@@ -11,6 +11,8 @@
 
 int main()
 {
+	//std::shared_ptr<const kaart> a(new  const kaart(kaartkleur::harten,kaarttype::aas));
+	//cout<<*a<<endl;
 
 	klaverjas begin_spel;
 	std::string kaarten_locatie="/home/jelmer/Code_selfbuild/Klaverjas/build/kaarten.txt";

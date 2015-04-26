@@ -15,6 +15,7 @@ class klaverjas
 {
 	public:
 		/**Initialize the game/players//cards**/
+		klaverjas(int number_spelers);
 		klaverjas();
 		virtual ~klaverjas();
 		/** A dividing card function, which takes all cards from players and gives them new ones**/
@@ -24,10 +25,7 @@ class klaverjas
 	private:
 		std::ifstream input_file;
 		deck deck_of_cards;
-		speler speler_1;
-		speler speler_2;
-		speler speler_3;
-		speler speler_4;
+		vector<speler> spelers_lijst;
 		//std::vector<std::shared_ptr<const kaart> > deck;
 };
 

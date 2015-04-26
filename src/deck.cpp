@@ -38,6 +38,9 @@ void deck::insert_card(std::shared_ptr<const kaart> input_kaart)
 
 std::shared_ptr<const kaart> deck::take_card()
 {
+	//If deck is empty, signal nullptr
+	if(deck_of_cards.size()==0) return NULL;
+
 	shared_ptr<const kaart> bovenste_kaart=deck_of_cards.back();
 	deck_of_cards.pop_back();
 
