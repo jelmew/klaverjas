@@ -11,6 +11,7 @@
 using std::string;
 using namespace std;
 
+/** Main klaverjas  class. Bedoeling is dat via de flow hiervan alles gebeurt.**/
 class klaverjas
 {
 	public:
