@@ -18,7 +18,7 @@ class speler {
       //Code to delete list of kaarten
       };
     friend std::ostream& operator<<(std::ostream& os, const speler& print);
-
+		bool hand_empty();
     void give_card(std::shared_ptr<const kaart> card);
     //bool take_card(kaartkleur kleur,kaarttype type);
     //bool take_card(kaart card);

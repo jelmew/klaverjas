@@ -38,3 +38,8 @@ void speler::give_card(std::shared_ptr<const kaart> card) {
 
   return;
   }
+
+bool speler::hand_empty()
+{
+	return hand.size()==0;
+}

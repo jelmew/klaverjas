@@ -4,10 +4,13 @@
 #include <string>
 #include <set>
 #include <memory>
+#include <chrono>
+#include <random>
 
 #include "kaart.h"
 #include "speler.h"
 #include "deck.h"
+#include "table.h"
 using std::string;
 using namespace std;
 
@@ -22,12 +25,19 @@ class klaverjas
 		/** A dividing card function, which takes all cards from players and gives them new ones**/
 		void get_card_list(string file_name);
 		void shuffle_and_give();
+		void random_troef();
+		void start_round(int start_speler);
+
 	protected:
 	private:
+		void set_troef(kaartkleur input_troef);
+
 		std::ifstream input_file;
 		deck deck_of_cards;
 		vector<speler> spelers_lijst;
-		//std::vector<std::shared_ptr<const kaart> > deck;
+		//std::vector<std::shared_ptr<const kaart> > dek;
+		kaartkleur troef;
+		table tafel;
 };
 
 #endif // KLAVERJAS_H

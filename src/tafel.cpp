@@ -9,4 +9,3 @@ tafel::~tafel()
 {
 	//dtor
 }
-

@@ -7,7 +7,6 @@ class tafel
 	public:
 		tafel();
 		virtual ~tafel();
-
 	protected:
 	private:
 };

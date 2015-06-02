@@ -58,7 +58,8 @@ void klaverjas::get_card_list(string filename) {
     auto type=type_iterator->second;
 
     //cout<<kleur<<endl;
-    std::shared_ptr<const kaart> new_kaart(new const kaart(kleur,type));
+    //std::shared_ptr<const kaart> new_kaart(new const kaart(kleur,type));
+    auto new_kaart= std::make_shared<const kaart>(kleur,type);
     deck_of_cards.insert_card(new_kaart);
 
 
@@ -92,12 +93,33 @@ void klaverjas::shuffle_and_give() {
   for(auto it: spelers_lijst)
     cout<<it<<endl;
 
-  //deck_of_cards.print_deck();
-  //for(int i=0;i<40;i++)
-  //{
-  //	cout<<deck_of_cards.take_card()<<endl;
-  //}
-
   return;
+	}
 
-  }
+void klaverjas::set_troef(kaartkleur input_troef)
+{
+	troef=input_troef;
+	return;
+}
+/** Implementation not yet correct, will be deck based in the future**/
+void klaverjas::random_troef(){
+	auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	gen.seed(seed);
+	std::uniform_int_distribution<> dis(0, 4);
+	troef=static_cast<kaartkleur>(dis(gen)); //Error prone
+
+	return;
+
+}
+
+void klaverjas::start_round(int start_speler)
+{
+	for(decltype(spelers_lijst.size()) i=0; i<spelers_lijst.size();i++)
+	{
+		int nr_speler=(start_speler+i)%spelers_lijst.size();
+		tafel.get_action(spelers_lijst[nr_speler],troef);
+
+	}
+}
