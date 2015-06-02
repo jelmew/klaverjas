@@ -18,6 +18,8 @@ int main()
 	std::string kaarten_locatie="/home/jelmer/Code_selfbuild/Klaverjas/build/kaarten.txt";
 	begin_spel.get_card_list(kaarten_locatie);
 	begin_spel.shuffle_and_give();
+	begin_spel.random_troef();
+	/**Kies een startspeler**/
 
 	return 0;
 };
