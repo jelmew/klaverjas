@@ -31,12 +31,14 @@ class klaverjas
 	protected:
 	private:
 		void set_troef(kaartkleur input_troef);
-
+		
 		std::ifstream input_file;
 		deck deck_of_cards;
 		vector<speler> spelers_lijst;
+		vector<kaart> importance_list;
 		//std::vector<std::shared_ptr<const kaart> > dek;
 		kaartkleur troef;
+		kaart* troef_kaart;
 		table tafel;
 };
 

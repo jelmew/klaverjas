@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include <boost/assign/list_of.hpp> // for 'map_list_of()'
-//#include <boost/assert.hpp>
 #include <map>
 using namespace std;
 using namespace boost::assign; // bring 'map_list_of()' into scope
@@ -32,6 +31,7 @@ class kaart {
 
     friend bool operator==(kaart& a, kaart& b);
     friend bool operator!=(kaart& a, kaart& b);
+    friend bool operator<(kaart&a, kaart&b);
 
 
 
