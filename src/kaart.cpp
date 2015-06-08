@@ -72,8 +72,12 @@ bool operator==( kaart& a,  kaart& b) {
 
   }
 
+
 bool operator!=(kaart& a, kaart& b) {
   return !(a==b);
 
   }
 
+bool operator<(kaart& a, kaart& b){
+	return true;
+}

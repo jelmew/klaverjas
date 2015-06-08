@@ -4,7 +4,7 @@ std::ostream& operator<<(std::ostream& os, const speler& print) {
   os<<"player name: "<<print.player_name<<" ";
   os<<"hand: ";
   for(auto &i: print.hand) {
-    os<<*i<<" ";
+    os<<*i<<", ";
     }
 
   return os;

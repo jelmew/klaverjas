@@ -38,12 +38,7 @@ void klaverjas::get_card_list(string filename) {
 
   string kleur_string, type_string;
   while(!input_file.eof()) {
-    //std::cout<<(*input_file)<<std::endl;
-
     input_file>>kleur_string>>type_string;
-    //cout<<kleur_string<<" "<<type_string<<endl;
-
-    //std::cout<<kleur_string<<" "<<type_string<<std::endl;
     auto kleur_iterator=kleur_map.find(kleur_string);
     if(kleur_iterator==kleur_map.end()) {
       cout<<"kleur string: "<<kleur_string<<" is niet compatibel"<<endl;
@@ -57,8 +52,6 @@ void klaverjas::get_card_list(string filename) {
     auto kleur=kleur_iterator->second;
     auto type=type_iterator->second;
 
-    //cout<<kleur<<endl;
-    //std::shared_ptr<const kaart> new_kaart(new const kaart(kleur,type));
     auto new_kaart= std::make_shared<const kaart>(kleur,type);
     deck_of_cards.insert_card(new_kaart);
 
@@ -85,10 +78,8 @@ void klaverjas::shuffle_and_give() {
     if(a==nullptr) break;
 
     int int_speler=i%spelers_lijst.size();
-    //cout<<"Speler: "<<int_speler<<" krijgt "<<*a<<endl;
     spelers_lijst[int_speler].give_card(a);
-
-    }
+	}
 
   for(auto it: spelers_lijst)
     cout<<it<<endl;
@@ -108,7 +99,11 @@ void klaverjas::random_troef(){
 	std::mt19937 gen(rd());
 	gen.seed(seed);
 	std::uniform_int_distribution<> dis(0, 4);
-	troef=static_cast<kaartkleur>(dis(gen)); //Error prone
+	auto troef_kleur=static_cast<kaartkleur>(dis(gen)); //Error prone
+	kaarttype troef_type=aas;
+	troef_kaart=new kaart(troef_kleur,troef_type);
+	cout<<(*troef_kaart)<<endl;
+
 
 	return;
 
